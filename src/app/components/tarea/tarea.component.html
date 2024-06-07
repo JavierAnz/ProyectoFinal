@@ -1,0 +1,14 @@
+<li>
+  <label>
+    <input type="checkbox" />
+    {{ tarea.titulo }}
+  </label>
+
+  <span [ngStyle]="{ 'background-color': tarea.prioridad }">{{
+    tarea.descripcion
+  }}</span>
+
+  <button (click)="eliminarTarea(tarea.id)" id="Eliminarbtn">Terminar</button>
+
+  <p>creada: {{ tarea.id }}</p>
+</li>

@@ -1,0 +1,12 @@
+<div class="content">
+  <h1>Todo List</h1>
+
+  <div>
+    <button id="agregarbtn" (click)="irACrearT()">agregar</button>
+    <ul>
+      @for (tarea of respuesta.Tareas; track tarea.id) {
+      <app-tarea [tarea]="tarea"></app-tarea>
+      }
+    </ul>
+  </div>
+</div>

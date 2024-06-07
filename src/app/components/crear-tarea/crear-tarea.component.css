@@ -1,0 +1,57 @@
+form{
+    margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        background-color: #f9f9f9;
+    }  
+    
+    .InputField{
+        margin: 5px;
+        padding: 20px;
+    }
+    
+    input{
+        margin: 5px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+    }
+    
+    input:hover{
+        background-color: #b7deb8;
+        color: black;
+    }
+    
+    #send{
+        display: flex;
+        justify-content: center;
+    }
+    button{
+        margin: 5px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        background-color: #4CAF50;
+        color: white;
+        transition: 80ms ease-in-out;
+    
+    }   
+    
+    button:hover{
+        background-color: #45a049;
+        font-size: large;
+    }
+    
+    #prioridad{
+        margin: 5px;
+        margin-right: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+    }
+    
+    #prioridad:hover{
+        background-color: #b7deb8;
+        color: black;
+    }   

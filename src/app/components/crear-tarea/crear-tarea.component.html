@@ -1,0 +1,29 @@
+<form [formGroup]="tareaForm" (ngSubmit)="onSubmit()">
+  <div class="InputField">
+    <label for="titulo">Tarea:</label>
+    <input type="text" id="titulo" formControlName="titulo" required />
+  </div>
+  <div class="InputField">
+    <label for="descripcion">Descripción:</label>
+    <input
+      type="text"
+      id="descripcion"
+      formControlName="descripcion"
+      required
+    />
+  </div>
+  <div class="InputField">
+    <label for="prioridad">Prioridad:</label>
+    <select id="prioridad" formControlName="prioridad" required>
+      <option value="tomato">Alta</option>
+      <option value="yellow">Media</option>
+      <option value="greenyellow">Baja</option>
+    </select>
+  </div>
+  <div id="send">
+    <button type="submit">Crear Tarea</button>
+  </div>
+</form>
+<div class="InputField">
+  <button (click)="irAListado()">Listado Tarea</button>
+</div>

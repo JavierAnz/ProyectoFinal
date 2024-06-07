@@ -1,0 +1,59 @@
+.prioridad-alta {
+    background-color: red;
+  }
+  
+  .prioridad-media {
+    background-color: yellow;
+  }
+  
+  .prioridad-baja {
+    background-color: lightblue;
+  }
+  
+
+.content{
+    margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        background-color: #f9f9f9;
+    }  
+
+h1{
+    text-align: center;
+}
+ 
+ul{
+    list-style: none;
+    padding: 0;
+}
+li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+span{
+    margin: 5px;
+    padding:10px;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+
+} 
+
+#Eliminarbtn{
+    background-color: tomato;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#Eliminarbtn:hover{
+    background-color: rgb(189, 72, 51);
+
+}

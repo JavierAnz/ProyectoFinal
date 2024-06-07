@@ -1,0 +1,27 @@
+.search{
+    margin: 20px;
+
+    input{
+        margin: 5px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        margin: 5px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+    }
+    button:hover{
+        background-color: #b7deb8;
+        color: black;
+    }   
+    select{
+        margin: 5px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+    }
+}  
