@@ -45,15 +45,21 @@ span{
     padding:10px;
     color: gray;
     border-radius: 10px;
-;
+
 }
 
-span[priorida="alta"]{
-    background-color: tomato;
-    color: white;
+#buscarbtn{
+    margin: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    cursor: pointer;
+    color: #333;
+    transition: 150ms ease-in-out;
 }
 
-span[priorida="media"]{
-    background-color: rgb(248, 248, 128);
-    color: black;
-}
+#buscarbtn:hover{
+    background-color: #45a049;
+    font-size: large;
+}   

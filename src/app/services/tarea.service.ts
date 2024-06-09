@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TareaResponse, tarea } from '../models/response/TareaResponse';
 
@@ -25,5 +25,24 @@ export class TareaService {
 
   deleteTarea(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+  searchTareas(params: {
+    titulo: string;
+    prioridad: string;
+  }): Observable<tarea[]> {
+    let httpParams = new HttpParams();
+    if (params.titulo) {
+      httpParams = httpParams.set('titulo', params.titulo);
+    }
+    if (params.prioridad) {
+      httpParams = httpParams.set('prioridad', params.prioridad);
+    }
+    return this.http.get<tarea[]>(`${this.baseUrl}/search`, {
+      params: httpParams,
+    });
+  }
+
+  getTareaById(id: number): Observable<tarea> {
+    return this.http.get<tarea>(`${this.baseUrl}/${id}`);
   }
 }

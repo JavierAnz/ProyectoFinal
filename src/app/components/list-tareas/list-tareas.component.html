@@ -3,6 +3,8 @@
 
   <div>
     <button id="agregarbtn" (click)="irACrearT()">agregar</button>
+    <button id="buscarbtn" (click)="irABuscarT()">Buscar</button>
+
     <ul>
       @for (tarea of respuesta.Tareas; track tarea.id) {
       <app-tarea [tarea]="tarea"></app-tarea>

@@ -1,0 +1,42 @@
+<div class="search-container">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <div class="input-field">
+      <label for="titulo">Buscar por Título:</label>
+      <input type="text" id="titulo" formControlName="titulo" />
+    </div>
+    <div class="input-field">
+      <label for="prioridad">Buscar por Prioridad:</label>
+      <select id="prioridad" formControlName="prioridad">
+        <option value="">Todas</option>
+        <option value="tomato">Alta</option>
+        <option value="yellow">Media</option>
+        <option value="greenyellow">Baja</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit">Buscar</button>
+    </div>
+  </form>
+
+  <div *ngIf="tareas && tareas.length > 0">
+    <h3>Resultados de la búsqueda:</h3>
+    <ul>
+      <li *ngFor="let tarea of tareas">
+        <label>
+          <input type="checkbox" />
+          {{ tarea.titulo }}
+        </label>
+
+        <span [ngStyle]="{ 'background-color': tarea.prioridad }">{{
+          tarea.descripcion
+        }}</span>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="tareas && tareas.length === 0">
+    <p>No se encontraron tareas.</p>
+  </div>
+</div>
+<div class="InputField">
+  <button (click)="irAListado()">Listado de Tarea</button>
+</div>

@@ -1,26 +1,29 @@
-<form [formGroup]="tareaForm" (ngSubmit)="onSubmit()">
-  <div class="InputField">
-    <label for="titulo">Tarea:</label>
-    <input type="text" id="titulo" formControlName="titulo" required />
-  </div>
-  <div class="InputField">
-    <label for="descripcion">Descripción</label>
-    <input
-      type="text"
-      id="descripcion"
-      formControlName="descripcion"
-      required
-    />
-  </div>
-  <div class="InputField">
-    <label for="prioridad">Prioridad:</label>
-    <select id="prioridad" formControlName="prioridad" required>
-      <option value="alta">Alta</option>
-      <option value="media">Media</option>
-      <option value="baja">Baja</option>
-    </select>
-  </div>
-  <div id="send">
-    <button type="submit">Editar Tarea</button>
-  </div>
-</form>
+<div class="edit-container">
+  <h2>Editar Tarea</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="input-field">
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" formControlName="titulo" required />
+    </div>
+    <div class="input-field">
+      <label for="descripcion">Descripción:</label>
+      <input
+        type="text"
+        id="descripcion"
+        formControlName="descripcion"
+        required
+      />
+    </div>
+    <div class="input-field">
+      <label for="prioridad">Prioridad:</label>
+      <select id="prioridad" formControlName="prioridad" required>
+        <option value="alta">Alta</option>
+        <option value="media">Media</option>
+        <option value="baja">Baja</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit">Guardar Cambios</button>
+    </div>
+  </form>
+</div>

@@ -3,6 +3,7 @@ import { tarea } from '../../models/response/TareaResponse';
 import { TareaService } from '../../services/tarea.service';
 import { ShareServiceTsService } from '../../services/share.service.ts.service';
 import { NgStyle } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tarea',
@@ -16,7 +17,8 @@ export class TareaComponent {
 
   constructor(
     private tareaService: TareaService,
-    private shareService: ShareServiceTsService
+    private shareService: ShareServiceTsService,
+    private router: Router
   ) {}
 
   eliminarTarea(id: number) {
@@ -25,5 +27,9 @@ export class TareaComponent {
       console.log(`Tarea con id ${id} eliminada`);
       this.shareService.setCurrentTarea(new tarea());
     });
+  }
+
+  editarTarea(id: number) {
+    this.router.navigate(['/editar', id]);
   }
 }

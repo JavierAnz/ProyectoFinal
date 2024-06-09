@@ -1,59 +1,70 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TareaService } from '../../services/tarea.service';
 import { tarea } from '../../models/response/TareaResponse';
-import { ShareServiceTsService } from '../../services/share.service.ts.service';
 
 @Component({
   standalone: true,
+  imports: [ReactiveFormsModule],
   selector: 'app-editar-tarea',
   templateUrl: './editar-tarea.component.html',
   styleUrls: ['./editar-tarea.component.css'],
-  imports: [ReactiveFormsModule],
 })
 export class EditarTareaComponent implements OnInit {
-  @Input() tarea: tarea = new tarea();
-  tareaForm: FormGroup;
+  editForm: FormGroup;
+  tareaId: number;
 
   constructor(
     private fb: FormBuilder,
     private tareaService: TareaService,
-    private shareService: ShareServiceTsService
+    private route: ActivatedRoute,
+    private router: Router
   ) {
-    this.tareaForm = this.fb.group({
+    this.editForm = this.fb.group({
       titulo: ['', Validators.required],
       descripcion: ['', Validators.required],
       prioridad: ['', Validators.required],
     });
+
+    this.tareaId = this.route.snapshot.params['id'];
   }
 
-  ngOnInit(): void {
-    this.tareaForm.patchValue({
-      titulo: this.tarea.titulo,
-      descripcion: this.tarea.descripcion,
-      prioridad: this.tarea.prioridad,
+  ngOnInit() {
+    this.tareaService.getTareaById(this.tareaId).subscribe((tarea: tarea) => {
+      this.editForm.patchValue({
+        titulo: tarea.titulo,
+        descripcion: tarea.descripcion,
+        prioridad: tarea.prioridad,
+      });
     });
   }
 
   onSubmit() {
-    if (this.tareaForm.valid) {
-      const updatedTarea = {
-        ...this.tarea,
-        ...this.tareaForm.value,
+    if (this.editForm.valid) {
+      const updatedTarea: tarea = {
+        id: this.tareaId,
+        titulo: this.editForm.get('titulo')?.value,
+        descripcion: this.editForm.get('descripcion')?.value,
+        prioridad: this.editForm.get('prioridad')?.value,
+        fechaCreacion: new Date(),
+        estado: '', // Actualiza este campo si es necesario
       };
 
-      this.tareaService
-        .updateTarea(this.tarea.id, updatedTarea)
-        .subscribe(() => {
-          console.log(`Tarea con id ${this.tarea.id} actualizada`);
-          // Notificar al componente padre para actualizar la lista de tareas
-          this.shareService.setCurrentTarea(new tarea()); // Trigger update in parent
-        });
+      this.tareaService.updateTarea(this.tareaId, updatedTarea).subscribe({
+        next: (response) => {
+          alert('Tarea actualizada correctamente');
+          this.router.navigate(['/listado']);
+        },
+        error: (error) => {
+          alert('Error al actualizar la tarea');
+        },
+      });
     }
   }
 }

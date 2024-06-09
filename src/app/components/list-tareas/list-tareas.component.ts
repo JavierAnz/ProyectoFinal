@@ -41,4 +41,7 @@ export class ListTareasComponent implements OnInit {
   irACrearT() {
     this.router.navigate(['creartarea']); // Navega a la página de registro
   }
+  irABuscarT() {
+    this.router.navigate(['buscartarea']); // Navega a la página de búsqueda
+  }
 }

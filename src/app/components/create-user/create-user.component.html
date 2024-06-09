@@ -8,9 +8,27 @@
     <input type="text" id="username" formControlName="username" required />
   </div>
   <div class="InputField">
+    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+    <input
+      type="date"
+      id="fechaNacimiento"
+      formControlName="fechaNacimiento"
+      required
+    />
+  </div>
+
+  <div class="InputField">
     <label for="password">Contraseña:</label>
     <input type="password" id="password" formControlName="password" required />
   </div>
+  <div class="InputField">
+    <label for="genero">Género:</label>
+    <select id="genero" formControlName="genero" required>
+      <option value="M">Masculino</option>
+      <option value="F">Femenino</option>
+    </select>
+  </div>
+
   <div id="send">
     <button type="submit">Grabar Usuario</button>
   </div>

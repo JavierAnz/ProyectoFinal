@@ -1,15 +1,3 @@
-.prioridad-alta {
-    background-color: red;
-  }
-  
-  .prioridad-media {
-    background-color: yellow;
-  }
-  
-  .prioridad-baja {
-    background-color: lightblue;
-  }
-  
 
 .content{
     margin: 20px;
@@ -54,6 +42,22 @@ span{
 }
 
 #Eliminarbtn:hover{
-    background-color: rgb(189, 72, 51);
+    background-color: rgb(223, 115, 96);
+    color: black;
+
+}
+
+#Editarbtn{
+    background-color: lightblue;
+    color: rgb(5, 5, 5);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#Editarbtn:hover{
+    background-color: rgb(110, 110, 248);
+    color: white;
 
 }
